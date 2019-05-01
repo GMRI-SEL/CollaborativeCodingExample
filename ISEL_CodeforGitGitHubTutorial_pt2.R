@@ -9,6 +9,7 @@
 #an edit
 # Load it in
 data(trees) #Trees are green
+hist(trees$Girth)
 
 # Preliminary inspection: format, structure, dimensions
 head(trees)
