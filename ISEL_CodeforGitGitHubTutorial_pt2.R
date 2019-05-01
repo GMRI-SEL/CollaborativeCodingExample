@@ -128,3 +128,8 @@ summary(girth.height.int.mod)
 # Comparison -- definitely better way to do this, but for now:
 mod.comp<- data.frame("Model" = c("Girth", "Girth+Height", "Girth+Height+Int"), bind_rows(glance(girth.mod), glance(girth.height.mod), glance(girth.height.int.mod)))
 mod.comp
+
+# Maybe try a GAM?
+library(mgcv)
+gam.mod<- gam(Volume ~ s(Girth) + s(Height), data = trees)
+plot(gam.mod)
