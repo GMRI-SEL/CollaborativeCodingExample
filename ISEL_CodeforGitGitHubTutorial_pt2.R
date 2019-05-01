@@ -9,13 +9,14 @@
 #an edit
 # Load it in
 data(trees) #Trees are green
+hist(trees$Girth)
 
 # Preliminary inspection: format, structure, dimensions
 head(trees)
 str(trees)
 dim(trees)
 colnames(trees)
-
+summary(trees)
 # Little tree ecology for us marine folks: tree height and girth are commonly measured, while measuring tree volume is more difficult and less appealing as it requires either cutting down the tree, or climing all over it and taking a lot of precise measurements. Ideally, we'd like to be able to build a model that relates height and girth to tree volume.  
 
 ## Exploration
@@ -129,7 +130,12 @@ summary(girth.height.int.mod)
 mod.comp<- data.frame("Model" = c("Girth", "Girth+Height", "Girth+Height+Int"), bind_rows(glance(girth.mod), glance(girth.height.mod), glance(girth.height.int.mod)))
 mod.comp
 
+
 # Maybe try a GAM?
 library(mgcv)
 gam.mod<- gam(Volume ~ s(Girth) + s(Height), data = trees)
 plot(gam.mod)
+=======
+
+#here is a change
+#testing my power
